@@ -12,7 +12,9 @@ pipeline {
             agent any
             steps {
               withSonarQubeEnv('SonarQube') {
-                sh 'npm run build sonar:sonar'
+                sh 'npm install'
+                sh 'npm install sonarqube-scanner --save-dev'
+                sh 'npm run sonar'
               }
             }
           }
